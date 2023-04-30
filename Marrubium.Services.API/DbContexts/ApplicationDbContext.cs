@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Marrubium.Services.ProductAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Marrubium.Services.ProductAPI.DbContexts
 {
@@ -9,6 +10,6 @@ namespace Marrubium.Services.ProductAPI.DbContexts
 
         }
 
-
+        public DbSet<Product> Products { get; set; }
     }
 }
