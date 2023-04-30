@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{810591C7-698C-42AB-AF80-5BD2F6F66AEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{5A2A0C20-3602-4E2B-80D7-BAB67BC50BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marrubium.Web", "Marrubium.Web\Marrubium.Web.csproj", "{2DA5EB28-898A-4DFF-B010-A2ECC6DE36B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{781DD122-925F-4143-814B-12296B28D09B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marrubium.Services.ProductAPI", "Marrubium.Services.API\Marrubium.Services.ProductAPI.csproj", "{3D302EA6-687B-405E-997D-F186FD1AB6F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DA5EB28-898A-4DFF-B010-A2ECC6DE36B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA5EB28-898A-4DFF-B010-A2ECC6DE36B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA5EB28-898A-4DFF-B010-A2ECC6DE36B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA5EB28-898A-4DFF-B010-A2ECC6DE36B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D302EA6-687B-405E-997D-F186FD1AB6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D302EA6-687B-405E-997D-F186FD1AB6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D302EA6-687B-405E-997D-F186FD1AB6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D302EA6-687B-405E-997D-F186FD1AB6F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2DA5EB28-898A-4DFF-B010-A2ECC6DE36B7} = {810591C7-698C-42AB-AF80-5BD2F6F66AEC}
+		{781DD122-925F-4143-814B-12296B28D09B} = {810591C7-698C-42AB-AF80-5BD2F6F66AEC}
+		{3D302EA6-687B-405E-997D-F186FD1AB6F7} = {781DD122-925F-4143-814B-12296B28D09B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6170150-99A4-4424-B53E-43BE54D25ADF}
+	EndGlobalSection
+EndGlobal
