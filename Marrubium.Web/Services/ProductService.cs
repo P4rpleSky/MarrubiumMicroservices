@@ -7,7 +7,6 @@ namespace Marrubium.Web.Services
     {
         private readonly IHttpClientFactory _clientFactory;
 
-
         public ProductService(IHttpClientFactory clientFactory) : base(clientFactory)
         {
             _clientFactory = clientFactory;

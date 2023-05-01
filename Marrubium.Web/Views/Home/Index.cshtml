@@ -2,7 +2,211 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link rel="stylesheet" type="text/css" href="~/css/main_page.css" />
+<link rel="stylesheet" type="text/css" href="~/css/popup.css">
+<link rel="stylesheet" type="text/css" href="~/css/owl.carousel.min.css" />
+<link rel="stylesheet" type="text/css" href="~/css/owl.theme.default.css" />
+
+<div class="main-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="main-container">
+                    <h1 class="main-container__title">
+                        We will take care of your skin
+                    </h1>
+                    <p class="s1">
+                        Our cosmetics have natural plant extracts
+                    </p>
+                    <a class="page-button" href="/catalog">
+                        Move to catalog
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bottle-image"></div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="about-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="brand-container">
+                    <div class="upper-flower">
+                        <img src="img/flower_out.png" alt="upper-flower">
+                    </div>
+                    <div class="brand-container__logo">
+                        <p>Marrubium</p>
+                    </div>
+                    <div class="bottom-flower">
+                        <img src="img/flower_in.png" alt="bottom-flower">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="brand-text">
+                    <h1 class="brand-text__title">Our brand</h1>
+                    <p class="brand-text__text">
+                        We create cosmetics from natural materials for different skin types.
+                    </p>
+                    <p class="brand-text__text">
+                        Our task is to create the most hypoallergenic cosmetics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flowers-block">
+    <div class="flowers-row"></div>
+</div>
+<div id="catalog" class="new-products-block">
+    <div class="container">
+        <div class="new-products pt-104-pl-140">
+            <h2 class="typical-header">New products this month</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="new-product__info">
+                        <div class="new-product_image">
+                            <img src="img/1.png" alt="1">
+                        </div>
+                        <div class="new-product__desc">
+                            <p class="prod_name s1">Cream with retinol</p>
+                            <ul class="pros">
+                                <li class="prod_pros s2">Fast regeneration</li>
+                                <li class="prod_pros s2">Brightens the skin</li>
+                                <li class="prod_pros s2">Narrows the pores</li>
+                            </ul>
+                        </div>
+                        <div id="info1">
+                            <div class="pop-up">
+                                <div class="popup-img" style="background-image: url('../img/popup1.png')"></div>
+                                <h3>Cream with retinol</h3>
+                                <div class="s1 pr-text">
+                                    Retinol helps to exfoliate the stratum corneum
+                                    of the skin, soften it, renew the cells of
+                                    the epidermis, brighten, correct even deep
+                                    wrinkles, reduce sebum production, narrow
+                                    pores, and fight acne.
+                                </div>
+                                <div class="s1 pr-text">
+                                    Price: 1000 ₽
+                                </div>
+                                <a href="#catalog" class="close"></a>
+                            </div>
+                        </div>
+                        <a class="page-button more-button" href="#info1">
+                            More info
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="new-product__info">
+                        <div class="new-product_image">
+                            <img src="img/2.png" alt="2">
+                        </div>
+                        <div class="new-product__desc">
+                            <p class="prod_name s1">Lotion with centella</p>
+                            <ul class="pros">
+                                <li class="prod_pros s2">Soothes the skin</li>
+                                <li class="prod_pros s2">Retains moisture</li>
+                                <li class="prod_pros s2">Anti-inflammatory effect</li>
+                            </ul>
+                        </div>
+                        <div id="info2">
+                            <div class="pop-up">
+                                <div class="popup-img" style="background-image: url('../img/wtf.png')"></div>
+                                <h3>Lotion with centella</h3>
+                                <div class="s1 pr-text">
+                                    Something in the female language
+                                </div>
+                                <div class="s1 pr-text">
+                                    Price: ∞ ₽
+                                </div>
+                                <a href="#catalog" class="close"></a>
+                            </div>
+                        </div>
+                        <a class="page-button more-button" href="#info2">
+                            More info
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="new-product__info">
+                        <div class="new-product_image">
+                            <img src="img/3.png" alt="3">
+                        </div>
+                        <div class="new-product__desc">
+                            <p class="prod_name s1">Serum with green tea</p>
+                            <ul class="pros">
+                                <li class="prod_pros s2">Reduction of puffiness</li>
+                                <li class="prod_pros s2">Tonic effect</li>
+                                <li class="prod_pros s2">Protection against photo-aging</li>
+                            </ul>
+                        </div>
+                        <div id="info3">
+                            <div class="pop-up">
+                                <div class="popup-img" style="background-image: url('../img/wtf.png')"></div>
+                                <h3>Serum with green tea</h3>
+                                <div class="s1 pr-text">
+                                    Something in the female language #2
+                                </div>
+                                <div class="s1 pr-text">
+                                    Price: ∞ ₽
+                                </div>
+                                <a href="#catalog" class="close"></a>
+                            </div>
+                        </div>
+                        <a class="page-button more-button" href="#info3">
+                            More info
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="our-clients-block">
+    <div class="container">
+        <div class="our-clients pt-104-pl-140">
+            <h2 class="typical-header">Our customers</h2>
+            <div class="row">
+                <div class="col">
+                    <div class="owl-carousel owl-theme">
+                        <div class="feedback-item">
+                            <div class="feedback__text">
+                                <p class="s2">Darya Belova</p>
+                                <p class="s3">
+                                    Lotion with centella extract is simply irreplaceable for me.
+                                    For my problem skin, it is a constant helper. I'm very happy with the purshase.
+                                </p>
+                            </div>
+                            <div class="feedback-photo">
+                                <img src="img/people_1.png" alt="feedback-1">
+                            </div>
+                        </div>
+                        <div class="feedback-item">
+                            <div class="feedback__text">
+                                <p class="s2">Victoria Akimova</p>
+                                <p class="s3">
+                                    I use a cream with retinol.
+                                    This is my first product from this brand and I was very pleased with the purchase.
+                                </p>
+                            </div>
+                            <div class="feedback-photo">
+                                <img src="img/people_2.png" alt="feedback-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type ="text/javascript" src="~/js/jquery-3.6.0.min.js"></script>
+<script type ="text/javascript" src="~/js/owl.carousel.min.js"></script>
+ 

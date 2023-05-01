@@ -12,13 +12,19 @@ namespace Marrubium.Web.Models
 
         public int Price { get; set; }
 
-        public List<string> ProductTypes { get; set; }
+		public List<string> ProductTypes { get; set; }
 
-        public List<string> Functions { get; set; }
+        public string InternalProductTypes { get; set; }
 
-        public List<string> SkinTypes { get; set; }
+		public List<string> Functions { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string InternalFunctions { get; set; }
+
+		public List<string> SkinTypes { get; set; }
+
+        public string InternalSkinTypes { get; set; }
+
+		public string ImageUrl { get; set; }
 
         public string Description { get; set; }
     }

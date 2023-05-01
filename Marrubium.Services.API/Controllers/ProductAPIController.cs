@@ -48,7 +48,7 @@ namespace Marrubium.Services.ProductAPI.Controllers
             return _response;
         }
 
-        [HttpPost("{id:int}")]
+        [HttpPost]
         public async Task<object> Post([FromBody] ProductDto productDto)
         {
             try
