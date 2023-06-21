@@ -1,0 +1,47 @@
+syntax = "proto3";
+option csharp_namespace = "Marrubium.Services.ProductAPI.Grpc";
+package ProductApi;
+import "google/protobuf/empty.proto";
+
+service ProductApiGrpc {
+    rpc GetAllProducts(google.protobuf.Empty) returns (ProductsListResponse);
+    rpc GetProductById(GetProductRequest) returns (ProductResponse);
+    rpc CreateUpdateProduct(CreateUpdateProductRequest) returns (ProductResponse);
+    rpc DeleteProductById(DeleteProductRequest) returns (DeleteProductResponse);
+}
+
+message GetProductRequest {
+    int32 id = 1;
+}
+
+message DeleteProductRequest {
+    int32 id = 1;
+}
+
+message DeleteProductResponse {
+    bool is_success = 1;
+}
+
+message ProductsListResponse {
+    repeated ProductResponse products = 1;
+}
+
+message CreateUpdateProductRequest {
+    string name = 1;
+    int32 price = 2;
+    repeated string product_types = 3;
+    repeated string functions = 4;
+    repeated string skin_types = 5;
+    string image_url = 6;
+    string description = 7;
+}
+
+message ProductResponse {
+    string name = 1;
+    int32 price = 2;
+    repeated string product_types = 3;
+    repeated string functions = 4;
+    repeated string skin_types = 5;
+    string image_url = 6;
+    string description = 7;
+}
