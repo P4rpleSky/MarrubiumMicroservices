@@ -3,7 +3,7 @@ VALUES
 ('Cream with retinol', 1000, 'Lotion', 'Rejuvenating,Restoring', 'Soft', 'https://images.bsite.net/products/1_1.png', ''),
 ('Lotion with centella', 1500, 'Serum', 'Rejuvenating', 'Soft,Sensitive', 'https://images.bsite.net/products/1_2.png', ''),
 ('Serum with green tea', 1200, 'Serum', 'Restoring', 'Soft', 'https://images.bsite.net/products/1_3.png', ''),
-('Serum with wormwood', 1600, 'Serum', 'Restoring', 'Soft', 'https://images.bsite.net/products/1_4.png', ''),
+('Serum with wormwood', 1600, 'Serum', 'Restoring', 'Soft', 'https://images.bsite.net/products/1_3.png', ''),
 ('Scrub with vanilla', 900, 'Cleaning', 'Rejuvenating,Restoring', 'Soft,Sensitive', 'https://images.bsite.net/products/2_1.png', ''),
 ('Under-eye cream', 2000, 'Lotion', 'Rejuvenating,Restoring', 'Sensitive', 'https://images.bsite.net/products/2_2.png', ''),
 ('Cream with mint', 1000, 'Lotion', 'Rejuvenating', 'Soft,Sensitive', 'https://images.bsite.net/products/2_3.png', ''),

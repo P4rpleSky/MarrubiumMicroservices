@@ -10,49 +10,27 @@ namespace Marrubium.Services.ProductAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductId { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        [Required] 
+        public string Name { get; set; } = null!;
 
         [Range(1, int.MaxValue)]
         public int Price { get; set; }
 
-        [NotMapped]
-        public List<string> ProductTypes
-        {
-            get => this.InternalProductTypes.Split(',').ToList();
-            set => this.InternalProductTypes = string.Join(",", value);
-        }
+        [Required]
+        [Column(TypeName = "jsonb")]
+        public string ProductTypes{ get; set; } = null!;
 
         [Required]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public string InternalProductTypes { get; set; }
-
-        [NotMapped]
-        public List<string> Functions
-        {
-            get => this.InternalFunctions.Split(',').ToList();
-            set => this.InternalFunctions = string.Join(",", value);
-        }
-
+        [Column(TypeName = "jsonb")]
+        public string Functions { get; set; } = null!;
+        
         [Required]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public string InternalFunctions { get; set; }
-
-        [NotMapped]
-        public List<string> SkinTypes
-        {
-            get => this.InternalSkinTypes.Split(',').ToList();
-            set => this.InternalSkinTypes = string.Join(",", value);
-        }
-
+        [Column(TypeName = "jsonb")]
+        public string SkinTypes { get; set; } = null!;
+        
         [Required]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public string InternalSkinTypes { get; set; }
+        public string ImageUrl { get; set; } = null!;
 
-
-        [Required]
-        public string ImageUrl { get; set; }
-
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
     }
 }

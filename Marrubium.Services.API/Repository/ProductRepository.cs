@@ -19,7 +19,7 @@ namespace Marrubium.Services.ProductAPI.Repository
 
         public async Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
         {
-            Product product = _mapper.Map<ProductDto, Product>(productDto);
+            var product = _mapper.Map<ProductDto, Product>(productDto);
             if (product.ProductId > 0) 
             {
                 _db.Products.Update(product);
@@ -34,32 +34,29 @@ namespace Marrubium.Services.ProductAPI.Repository
 
         public async Task<bool> DeleteProduct(int productId)
         {
-            try
+            var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
+            if (product == null)
             {
-                Product product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
-                if (product == null)
-                {
-                    return false;
-                }
-                _db.Products.Remove(product);
-                _db.SaveChangesAsync();
-                return true;
+                throw new ArgumentException("Cannot delete user: invalid input ID!");
             }
-            catch(Exception ex)
-            {
-                return false;
-            }
+            _db.Products.Remove(product);
+            await _db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<ProductDto> GetProductById(int productId)
         {
-            Product product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
+            var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
+            if (product == null)
+            {
+                throw new ArgumentException("Cannot get user by id: invalid input ID!");
+            }
             return _mapper.Map<ProductDto>(product);
         }
 
         public async Task<IEnumerable<ProductDto>> GetProducts()
         {
-            List<Product> productList = await _db.Products.ToListAsync();
+            var productList = await _db.Products.OrderBy(x => x.ProductId).ToListAsync();
             return _mapper.Map<List<ProductDto>>(productList);
         }
     }

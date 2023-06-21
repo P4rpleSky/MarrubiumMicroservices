@@ -6,20 +6,18 @@ namespace Marrubium.Services.ProductAPI.Models.Dto
 {
     public class ProductDto
     {
-        public int ProductId { get; set; }
-
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         public int Price { get; set; }
 
-        public List<string> ProductTypes { get; set; }
+        public List<string> ProductTypes { get; set; } = null!;
 
-        public List<string> Functions { get; set; }
+        public List<string> Functions { get; set; } = null!;
 
-        public List<string> SkinTypes { get; set; }
+        public List<string> SkinTypes { get; set; } = null!;
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = null!;
 
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
     }
 }

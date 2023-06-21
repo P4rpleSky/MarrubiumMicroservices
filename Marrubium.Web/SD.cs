@@ -10,5 +10,13 @@
             PUT, 
             DELETE
         }
+        
+        public enum ViewType
+        {
+            Create,
+            Info,
+            Edit,
+            Delete
+        }
     }
 }
