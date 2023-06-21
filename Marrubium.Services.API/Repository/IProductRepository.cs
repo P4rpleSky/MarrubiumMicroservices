@@ -1,12 +1,14 @@
-﻿using Marrubium.Services.ProductAPI.Models.Dto;
+﻿
+
+using Marrubium.Services.ProductAPI.HttpModels;
 
 namespace Marrubium.Services.ProductAPI.Repository
 {
     public interface IProductRepository
     {
-        Task<IEnumerable<ProductDto>> GetProducts();
-        Task<ProductDto> GetProductById(int productId);
-        Task<ProductDto> CreateUpdateProduct(ProductDto productDto);
-        Task<bool> DeleteProduct(int productId);
+        Task<IEnumerable<ProductDto>> GetProductsAsync();
+        Task<ProductDto> GetProductByIdAsync(int productId);
+        Task<ProductCreateUpdateDto> CreateUpdateProductAsync(ProductCreateUpdateDto productDto);
+        Task<bool> DeleteProductByIdAsync(int productId);
     }
 }

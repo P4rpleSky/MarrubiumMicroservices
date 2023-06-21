@@ -1,4 +1,5 @@
-﻿using Marrubium.Services.ProductAPI.Models.Dto;
+﻿using Marrubium.Services.ProductAPI.HttpModels;
+
 using Marrubium.Services.ProductAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ namespace Marrubium.Services.ProductAPI.Controllers
         {
             try
             {
-                var productDtos = await _productRepository.GetProducts();
+                var productDtos = await _productRepository.GetProductsAsync();
                 return Ok(productDtos.ToList());
             }
             catch (Exception ex)
@@ -38,7 +39,7 @@ namespace Marrubium.Services.ProductAPI.Controllers
         {
             try
             {
-                var productDto = await _productRepository.GetProductById(id);
+                var productDto = await _productRepository.GetProductByIdAsync(id);
                 return Ok(productDto);
             }
             catch (Exception ex)
@@ -50,11 +51,11 @@ namespace Marrubium.Services.ProductAPI.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProductDto>> Post([FromBody] ProductDto productDto)
+        public async Task<ActionResult<ProductDto>> Post([FromBody] ProductCreateUpdateDto productDto)
         {
             try
             {
-                var model = await _productRepository.CreateUpdateProduct(productDto);
+                var model = await _productRepository.CreateUpdateProductAsync(productDto);
                 return Ok(model);
             }
             catch (Exception ex)
@@ -66,11 +67,11 @@ namespace Marrubium.Services.ProductAPI.Controllers
         [HttpPut("{id:int}")]
         [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProductDto>> Put([FromBody] ProductDto productDto)
+        public async Task<ActionResult<ProductDto>> Put([FromBody] ProductCreateUpdateDto productDto)
         {
             try
             {
-                var model = await _productRepository.CreateUpdateProduct(productDto);
+                var model = await _productRepository.CreateUpdateProductAsync(productDto);
                 return Ok(model);
             }
             catch (Exception ex)
@@ -86,7 +87,7 @@ namespace Marrubium.Services.ProductAPI.Controllers
         {
             try
             {
-                var isSuccess = await _productRepository.DeleteProduct(id);
+                var isSuccess = await _productRepository.DeleteProductByIdAsync(id);
                 return Ok(isSuccess);
             }
             catch (Exception ex)

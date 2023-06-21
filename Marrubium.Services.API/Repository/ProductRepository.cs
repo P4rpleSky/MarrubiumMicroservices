@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Marrubium.Services.ProductAPI.DbContexts;
+using Marrubium.Services.ProductAPI.HttpModels;
 using Marrubium.Services.ProductAPI.Models;
-using Marrubium.Services.ProductAPI.Models.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace Marrubium.Services.ProductAPI.Repository
@@ -17,9 +17,9 @@ namespace Marrubium.Services.ProductAPI.Repository
             _mapper = mapper;
         }
 
-        public async Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
+        public async Task<ProductCreateUpdateDto> CreateUpdateProductAsync(ProductCreateUpdateDto productDto)
         {
-            var product = _mapper.Map<ProductDto, Product>(productDto);
+            var product = _mapper.Map<ProductCreateUpdateDto, Product>(productDto);
             if (product.ProductId > 0) 
             {
                 _db.Products.Update(product);
@@ -29,10 +29,10 @@ namespace Marrubium.Services.ProductAPI.Repository
                 _db.Products.Add(product);
             }
             await _db.SaveChangesAsync();
-            return _mapper.Map<Product, ProductDto>(product);
+            return _mapper.Map<Product, ProductCreateUpdateDto>(product);
         }
 
-        public async Task<bool> DeleteProduct(int productId)
+        public async Task<bool> DeleteProductByIdAsync(int productId)
         {
             var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
             if (product == null)
@@ -44,7 +44,7 @@ namespace Marrubium.Services.ProductAPI.Repository
             return true;
         }
 
-        public async Task<ProductDto> GetProductById(int productId)
+        public async Task<ProductDto> GetProductByIdAsync(int productId)
         {
             var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
             if (product == null)
@@ -54,7 +54,7 @@ namespace Marrubium.Services.ProductAPI.Repository
             return _mapper.Map<ProductDto>(product);
         }
 
-        public async Task<IEnumerable<ProductDto>> GetProducts()
+        public async Task<IEnumerable<ProductDto>> GetProductsAsync()
         {
             var productList = await _db.Products.OrderBy(x => x.ProductId).ToListAsync();
             return _mapper.Map<List<ProductDto>>(productList);
