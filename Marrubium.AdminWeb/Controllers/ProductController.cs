@@ -2,8 +2,6 @@
 using Marrubium.AdminWeb.Services;
 using Marrubium.Services.ProductAPI.HttpModels;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using static Marrubium.Services.ProductAPI.Grpc.ProductApiGrpc;
 
 namespace Marrubium.AdminWeb.Controllers
 {
