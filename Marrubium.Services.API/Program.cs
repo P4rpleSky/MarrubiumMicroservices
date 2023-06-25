@@ -1,7 +1,7 @@
 using AutoMapper;
 using Marrubium.Services.ProductAPI;
 using Marrubium.Services.ProductAPI.DbContexts;
-using Marrubium.Services.ProductAPI.GrpcService;
+using Marrubium.Services.ProductAPI.GrpcServices;
 using Marrubium.Services.ProductAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
