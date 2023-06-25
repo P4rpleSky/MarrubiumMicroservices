@@ -13,10 +13,14 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Marrubium.Services.ProductAPI.Grpc\Marrubium.Services.ProductAPI.Grpc.csproj" />
+      <ProjectReference Include="..\Marrubium.Services.ProductAPI.HttpModels\Marrubium.Services.ProductAPI.HttpModels.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
       <PackageReference Include="Grpc.AspNetCore" Version="2.54.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

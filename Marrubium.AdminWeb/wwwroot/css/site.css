@@ -8,6 +8,32 @@ html {
   }
 }
 
+:root {
+  --height: 200px;
+  --width: 200px
+}
+
+.product-img {
+  width: var(--width);
+  height: var(--height);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.product-img img {
+  width: var(--width);
+  height: auto;
+}
+
+.product-desc {
+  display: flex;
+  height: var(--height);
+  align-items: center;
+}
+
+
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }

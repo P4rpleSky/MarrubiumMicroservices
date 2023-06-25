@@ -1,8 +1,9 @@
-﻿using Marrubium.Web.Models;
-using Marrubium.Web.Services.IServices;
+﻿using Marrubium.AdminWeb.Models;
+using Marrubium.AdminWeb.Services;
+using Marrubium.Services.ProductAPI.HttpModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using static Marrubium.Services.ProductAPI.Grpc.ProductApiGrpc;
 
 namespace Marrubium.AdminWeb.Controllers
 {
@@ -15,47 +16,44 @@ namespace Marrubium.AdminWeb.Controllers
             _productService = productService;
         }
         
-        public async Task<ActionResult> ProductsListIndex()
+        public async Task<ActionResult> ProductListIndex()
         {
-            var productsList = new List<ProductDto>();
-            var response = await _productService.GetAllProductsAsync<ResponseDto>();
-            if (response.IsSuccess)
+            try
             {
-                productsList = JsonConvert.DeserializeObject<List<ProductDto>>(Convert.ToString(response.Result));
+                var productsList = await _productService.GetAllProductsAsync();
+                return View(productsList);
             }
-            return View(productsList);
+            catch (Exception exception)
+            {
+                return NotFound(exception.ToString());
+            }
         }
 
-		public async Task<ActionResult> ProductCreate(SD.ViewType viewType, int orderId = 0)
+		public async Task<ActionResult> ProductIndex(SD.ViewType viewType, int orderId = 0)
 		{
-            if (viewType == SD.ViewType.Info)
+            try
             {
-                var response = await _productService.GetProductByIdAsync<>(orderId);
-                if (response.IsSuccess)
+                var product = new ProductDto();
+                if (viewType != SD.ViewType.Create)
+                    product = await _productService.GetProductByIdAsync(orderId);
+                return View(new ProductRazorModel
                 {
-                    var orderDto = JsonConvert.DeserializeObject<OrderDto>(response.Result.ToString());
-                    return View(new OrderRazorModel
-                    {
-                        Order = orderDto,
-                        ViewType = SD.ViewType.Info
-                    });
-                }
-            }
-            else if (viewType == SD.ViewType.Create)
-            {
-                return View(new OrderRazorModel
-                {
-                    ViewType = SD.ViewType.Create
+                    Product = product,
+                    ViewType = viewType
                 });
             }
-            return NotFound();
-		}
+            catch (Exception exception)
+            {
+                return NotFound(exception.Message);
+            }
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
 		public async Task<IActionResult> ProductCreate(ProductDto productDto)
-		{
-            productDto.Functions = productDto.InternalFunctions.Split(',').ToList();
+        {
+            throw new NotImplementedException();
+            /*productDto.Functions = productDto.InternalFunctions.Split(',').ToList();
             productDto.SkinTypes = productDto.InternalSkinTypes.Split(',').ToList();
             productDto.ProductTypes = productDto.InternalProductTypes.Split(',').ToList();
             var response = await _productService.CreateProductAsync<ResponseDto>(productDto);
@@ -63,7 +61,7 @@ namespace Marrubium.AdminWeb.Controllers
             {
                 return RedirectToAction(nameof(ProductIndex));
             }
-            return View(productDto);
-		}
+            return View(productDto);*/
+        }
 	}
 }

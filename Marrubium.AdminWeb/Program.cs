@@ -1,4 +1,7 @@
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Net.Client;
+using Marrubium.AdminWeb;
+using Marrubium.AdminWeb.Services;
 using Marrubium.Services.ProductAPI.Grpc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,9 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var channel = GrpcChannel.ForAddress("https://localhost:7259/");
-builder.Services.AddScoped<ProductApiGrpc.ProductApiGrpcClient>(x =>
-    new ProductApiGrpc.ProductApiGrpcClient(channel));
+var mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+using var channel = GrpcChannel.ForAddress(builder.Configuration["ServiceUrls:ProductAPI"]?? "");
+var grpcClient = new ProductApiGrpc.ProductApiGrpcClient(channel);
+builder.Services.AddSingleton(grpcClient);
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
@@ -29,6 +38,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=ProductListIndex}");
 
 app.Run();
