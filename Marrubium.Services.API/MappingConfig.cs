@@ -16,37 +16,61 @@ namespace Marrubium.Services.ProductAPI
                     .ForMember(
                         dest => dest.ProductTypes,
                         opt => 
-                            opt.MapFrom(src => JsonConvert.SerializeObject(src.ProductTypes))
-                    )
+                            opt.MapFrom(src => JsonConvert.SerializeObject(src.ProductTypes)))
                     .ForMember(
                         dest => dest.Functions,
                         opt => 
-                            opt.MapFrom(src => JsonConvert.SerializeObject(src.Functions))
-                    )
+                            opt.MapFrom(src => JsonConvert.SerializeObject(src.Functions)))
                     .ForMember(
                         dest => dest.SkinTypes,
                         opt => 
-                            opt.MapFrom(src => JsonConvert.SerializeObject(src.SkinTypes))
-                    );
-                
-                config.CreateMap<Product, ProductDto>()
+                            opt.MapFrom(src => JsonConvert.SerializeObject(src.SkinTypes)))
+                    .ReverseMap()
                     .ForMember(
                         dest => dest.ProductTypes,
                         opt => 
-                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.ProductTypes))
-                    )
+                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.ProductTypes)))
                     .ForMember(
                         dest => dest.Functions,
                         opt => 
-                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.Functions))
-                    )
+                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.Functions)))
                     .ForMember(
                         dest => dest.SkinTypes,
                         opt => 
-                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.SkinTypes))
-                    );
+                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.SkinTypes)));
+                
+                config.CreateMap<ProductCreateUpdateDto, Product>()
+                    .ForMember(
+                        dest => dest.ProductTypes,
+                        opt => 
+                            opt.MapFrom(src => JsonConvert.SerializeObject(src.ProductTypes)))
+                    .ForMember(
+                        dest => dest.Functions,
+                        opt => 
+                            opt.MapFrom(src => JsonConvert.SerializeObject(src.Functions)))
+                    .ForMember(
+                        dest => dest.SkinTypes,
+                        opt => 
+                            opt.MapFrom(src => JsonConvert.SerializeObject(src.SkinTypes)))
+                    .ReverseMap()
+                    .ForMember(
+                        dest => dest.ProductTypes,
+                        opt => 
+                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.ProductTypes)))
+                    .ForMember(
+                        dest => dest.Functions,
+                        opt => 
+                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.Functions)))
+                    .ForMember(
+                        dest => dest.SkinTypes,
+                        opt => 
+                            opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.SkinTypes)));
                 
                 config.CreateMap<ProductDto, ProductCreateUpdateDto>().ReverseMap();
+
+                config.CreateMap<ProductCreateUpdateDto, CreateUpdateProductRequest>().ReverseMap();
+                
+                config.CreateMap<ProductCreateUpdateDto, ProductResponse>().ReverseMap();
                 
                 config.CreateMap<ProductDto, ProductResponse>()
                     .ForMember(

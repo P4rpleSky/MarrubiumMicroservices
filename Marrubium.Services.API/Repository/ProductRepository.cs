@@ -19,7 +19,7 @@ namespace Marrubium.Services.ProductAPI.Repository
 
         public async Task<ProductCreateUpdateDto> CreateUpdateProductAsync(ProductCreateUpdateDto productDto)
         {
-            var product = _mapper.Map<ProductCreateUpdateDto, Product>(productDto);
+            var product = _mapper.Map<Product>(productDto);
             if (product.ProductId > 0) 
             {
                 _db.Products.Update(product);

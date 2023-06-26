@@ -30,10 +30,10 @@ public class ProductApiGrpcService : ProductApiGrpc.ProductApiGrpcBase
         }
         catch (Exception exception)
         {
-            throw new RpcException(new Status(StatusCode.Internal, "grpc API exception"),
+            throw new RpcException(new Status(StatusCode.Internal, "gRPC-API-exception"),
                 new Metadata
                 {
-                    {"inner exception", exception.Message}
+                    new Metadata.Entry("api-exception", exception.Message)
                 });
         }
     }
@@ -47,10 +47,10 @@ public class ProductApiGrpcService : ProductApiGrpc.ProductApiGrpcBase
         }
         catch (Exception exception)
         {
-            throw new RpcException(new Status(StatusCode.Internal, "grpc API exception"),
+            throw new RpcException(new Status(StatusCode.Internal, "gRPC-API-exception"),
                 new Metadata
                 {
-                    {"inner exception", exception.Message}
+                    new Metadata.Entry("api-exception", exception.Message)
                 });
         }
     }
@@ -59,25 +59,16 @@ public class ProductApiGrpcService : ProductApiGrpc.ProductApiGrpcBase
     {
         try
         {
-            var product = new ProductCreateUpdateDto()
-            {
-                Name = request.Name,
-                Description = request.Description,
-                ImageUrl = request.ImageUrl,
-                Price = request.Price,
-                ProductTypes = request.ProductTypes.ToList(),
-                SkinTypes = request.SkinTypes.ToList(),
-                Functions = request.Functions.ToList()
-            };
+            var product = _mapper.Map<ProductCreateUpdateDto>(request);
             var result = await _productRepository.CreateUpdateProductAsync(product);
             return _mapper.Map<ProductResponse>(result);
         }
         catch (Exception exception)
         {
-            throw new RpcException(new Status(StatusCode.InvalidArgument, "grpc API exception"),
+            throw new RpcException(new Status(StatusCode.InvalidArgument, "gRPC-API-exception"),
                 new Metadata
                 {
-                    {"inner exception", exception.Message}
+                    new Metadata.Entry("api-exception", exception.Message)
                 });
         }
     }
@@ -91,10 +82,10 @@ public class ProductApiGrpcService : ProductApiGrpc.ProductApiGrpcBase
         }
         catch (Exception exception)
         {
-            throw new RpcException(new Status(StatusCode.InvalidArgument, "grpc API exception"),
+            throw new RpcException(new Status(StatusCode.InvalidArgument, "gRPC-API-exception"),
                 new Metadata
                 {
-                    {"inner exception", exception.Message}
+                    new Metadata.Entry("api-exception", exception.Message)
                 });
         }
     }
