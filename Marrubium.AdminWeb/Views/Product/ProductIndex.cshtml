@@ -25,6 +25,8 @@
             formAspAction = "ProductDelete";
             formName = "Delete product";
             formActionName = "Delete";
+            disabledAttribute = "disabled";
+            hiddenAttribute = "hidden";
             break; 
         default:
             disabledAttribute = "disabled";
@@ -35,26 +37,27 @@
 
 
 <form asp-action="@formAspAction">
-    <br />
+    @Html.Hidden("Product.ProductId")
+    <br/>
     <div class="container border p-3">
         <h1 class="text-primary">@formName</h1>
 
-        <hr />
+        <hr/>
         <div class="row">
 
             <div class="col-2">
                 <label asp-for="Product.Name" class="control-label pt-2" style="font-size:20px;">Name</label>
             </div>
             <div class="col-10 pb-3">
-                <input disabled="@disabledAttribute" asp-for="Product.Name" class="form-control" />
+                <input disabled="@disabledAttribute" asp-for="Product.Name" class="form-control"/>
                 <span hidden="@hiddenAttribute" asp-validation-for="Product.Name" class="text-danger"></span>
             </div>
-            
+
             <div class="col-2">
                 <label asp-for="Product.Price" class="control-label pt-2" style="font-size:20px;">Price</label>
             </div>
             <div class="col-10 pb-3">
-                <input disabled="@disabledAttribute" asp-for="Product.Price" class="form-control" />
+                <input disabled="@disabledAttribute" asp-for="Product.Price" class="form-control"/>
                 <span hidden="@hiddenAttribute" asp-validation-for="Product.Price" class="text-danger"></span>
             </div>
 
@@ -62,53 +65,58 @@
                 <label asp-for="Product.ProductTypes" class="control-label pt-2" style="font-size:20px;">Product types</label>
             </div>
             <div class="col-10 pb-3">
-                <input disabled="@disabledAttribute" asp-for="Product.ProductTypes" class="form-control" />
+                <input disabled="@disabledAttribute" asp-for="Product.ProductTypes" class="form-control"/>
                 <span hidden="@hiddenAttribute" asp-validation-for="Product.ProductTypes" class="text-danger"></span>
             </div>
-            
+
             <div class="col-2">
                 <label asp-for="Product.Functions" class="control-label pt-2" style="font-size:20px;">Functions</label>
             </div>
             <div class="col-10 pb-3">
-                <input disabled="@disabledAttribute" asp-for="Product.Functions" class="form-control" />
+                <input disabled="@disabledAttribute" asp-for="Product.Functions" class="form-control"/>
                 <span hidden="@hiddenAttribute" asp-validation-for="Product.Functions" class="text-danger"></span>
             </div>
-            
+
             <div class="col-2">
                 <label asp-for="Product.SkinTypes" class="control-label pt-2" style="font-size:20px;">Skin types</label>
             </div>
             <div class="col-10 pb-3">
-                <input disabled="@disabledAttribute" asp-for="Product.SkinTypes" class="form-control" />
+                <input disabled="@disabledAttribute" asp-for="Product.SkinTypes" class="form-control"/>
                 <span hidden="@hiddenAttribute" asp-validation-for="Product.SkinTypes" class="text-danger"></span>
             </div>
-            
+
             <div class="col-2">
                 <label asp-for="Product.ImageUrl" class="control-label pt-2" style="font-size:20px;">Image url</label>
             </div>
             <div class="col-10 pb-3">
-                <input disabled="@disabledAttribute" asp-for="Product.ImageUrl" class="form-control" />
+                <input disabled="@disabledAttribute" asp-for="Product.ImageUrl" class="form-control"/>
                 <span hidden="@hiddenAttribute" asp-validation-for="Product.ImageUrl" class="text-danger"></span>
             </div>
-            
+
             <div class="col-2">
                 <label asp-for="Product.Description" class="control-label pt-2" style="font-size:20px;">Description</label>
             </div>
             <div class="col-10 pb-3">
-                <input disabled="@disabledAttribute" asp-for="Product.Description" class="form-control" />
+                <input disabled="@disabledAttribute" asp-for="Product.Description" class="form-control"/>
                 <span hidden="@hiddenAttribute" asp-validation-for="Product.Description" class="text-danger"></span>
             </div>
-            
+
             <div class="col-5 offset-2">
-	            <a asp-action="ProductListIndex" class="btn-primary btn form-control ">Back to list</a>
-            </div>
-            
-            <div hidden="@hiddenAttribute" class="col-5">
-                <input type="submit" value="@formActionName" class="btn btn-success form-control" />
+                <a asp-action="ProductListIndex" class="btn-primary btn form-control ">Back to list</a>
             </div>
 
-        </div>
-
-        <div>
+            @if (Model.ViewType == SD.ViewType.Delete)
+            {
+                <div class="col-5">
+                    <input type="submit" value="@formActionName" class="btn btn-danger form-control"/>
+                </div>
+            }
+            else
+            {
+                <div hidden="@hiddenAttribute" class="col-5">
+                    <input type="submit" value="@formActionName" class="btn btn-success form-control"/>
+                </div>
+            }
         </div>
     </div>
 </form>

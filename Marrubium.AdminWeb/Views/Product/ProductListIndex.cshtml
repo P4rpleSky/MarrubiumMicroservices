@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Marrubium.Services.ProductAPI.HttpModels.ProductDto>
+﻿@model IEnumerable<Marrubium.Services.ProductAPI.HttpModels.ProductCreateUpdateViewModel>
 
 <br />
 <br />
@@ -8,7 +8,7 @@
 			<h1>Products List</h1>
 		</div>
 		<div class="col text-end pt-1">
-			<a sp-action="ProductIndex" asp-route-viewType="@SD.ViewType.Create" class="btn btn-outline-primary">
+			<a asp-action="ProductIndex" asp-route-viewType="@SD.ViewType.Create" class="btn btn-outline-primary">
 				<i class="fas fa-plus"></i> Create new product
 			</a>
 		</div>
@@ -56,17 +56,17 @@
 					</td>
 					<td>
 						<div class="product-desc">
-							<div>@string.Join(", ", item.ProductTypes).ToLower()</div>
+							<div>@item.ProductTypes</div>
 						</div>
 					</td>
 					<td>
 						<div class="product-desc">
-						<div>@string.Join(", ", item.Functions).ToLower()</div>
+						<div>@item.Functions</div>
 						</div>
 					</td>
 					<td>
 						<div class="product-desc">
-							<div>@string.Join(", ", item.SkinTypes).ToLower()</div>
+							<div>@item.SkinTypes</div>
 						</div>
 					</td>
 					<td>
@@ -76,15 +76,17 @@
 					</td>
 					<td>
 						<div class="product-desc">
-							<a asp-action="ProductIndex" class="btn btn-info" asp-route-viewType="@SD.ViewType.Info" asp-route-orderId="@item.ProductId">
-								<i class="fas fa-eye"></i>
-							</a>
-							<a asp-action="ProductIndex" class="btn btn-success" asp-route-viewType="@SD.ViewType.Update" asp-route-orderId="@item.ProductId">
-								<i class="fas fa-edit"></i>
-							</a>
-							<a asp-action="ProductIndex" class="btn btn-danger" asp-route-viewType="@SD.ViewType.Delete" asp-route-orderId="@item.ProductId">
-								<i class="fas fa-trash"></i>
-							</a>
+							<div class="li-item">
+								<a asp-action="ProductIndex" class="btn btn-info" asp-route-viewType="@SD.ViewType.Info" asp-route-orderId="@item.ProductId">
+									<i class="fas fa-eye"></i>
+								</a>
+								<a asp-action="ProductIndex" class="btn btn-success" asp-route-viewType="@SD.ViewType.Update" asp-route-orderId="@item.ProductId">
+									<i class="fas fa-edit"></i>
+								</a>
+								<a asp-action="ProductIndex" class="btn btn-danger" asp-route-viewType="@SD.ViewType.Delete" asp-route-orderId="@item.ProductId">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
 						</div>
 					</td>
 				</tr>

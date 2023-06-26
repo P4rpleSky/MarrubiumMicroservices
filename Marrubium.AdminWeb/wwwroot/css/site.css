@@ -32,6 +32,15 @@ html {
   align-items: center;
 }
 
+.li-item {
+  /*height: 21px;*/
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  justify-content: flex-start;
+  align-items:center;
+  gap: 10px;
+}
 
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {

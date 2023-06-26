@@ -4,6 +4,6 @@ namespace Marrubium.AdminWeb.Models;
 
 public class ProductRazorModel
 {
-    public ProductDto Product { get; set; } = new ProductDto();
+    public ProductCreateUpdateViewModel Product { get; set; } = new ProductCreateUpdateViewModel();
     public SD.ViewType ViewType { get; set; }
 }

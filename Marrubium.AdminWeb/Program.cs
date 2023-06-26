@@ -17,6 +17,8 @@ using var channel = GrpcChannel.ForAddress(builder.Configuration["ServiceUrls:Pr
 var grpcClient = new ProductApiGrpc.ProductApiGrpcClient(channel);
 builder.Services.AddSingleton(grpcClient);
 
+
+
 builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
