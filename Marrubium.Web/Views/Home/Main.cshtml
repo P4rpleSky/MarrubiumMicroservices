@@ -1,5 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home";
+    Layout = "/Views/Shared/_Layout.cshtml";
 }
 
 <link rel="stylesheet" type="text/css" href="~/css/main_page.css" />
@@ -18,7 +19,7 @@
                     <p class="s1">
                         Our cosmetics have natural plant extracts
                     </p>
-                    <a class="page-button" href="/catalog">
+                    <a class="page-button" asp-controller="Catalog" asp-action="Main">
                         Move to catalog
                     </a>
                 </div>
@@ -86,10 +87,10 @@
                                 <div class="popup-img" style="background-image: url('../img/popup1.png')"></div>
                                 <h3>Cream with retinol</h3>
                                 <div class="s1 pr-text">
-                                    Retinol helps to exfoliate the stratum corneum
-                                    of the skin, soften it, renew the cells of
-                                    the epidermis, brighten, correct even deep
-                                    wrinkles, reduce sebum production, narrow
+                                    Retinol helps to exfoliate the stratum corneum 
+                                    of the skin, soften it, renew the cells of 
+                                    the epidermis, brighten, correct even deep 
+                                    wrinkles, reduce sebum production, narrow 
                                     pores, and fight acne.
                                 </div>
                                 <div class="s1 pr-text">
@@ -207,6 +208,6 @@
     </div>
 </div>
 
-<script type ="text/javascript" src="~/js/jquery-3.6.0.min.js"></script>
-<script type ="text/javascript" src="~/js/owl.carousel.min.js"></script>
- 
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>

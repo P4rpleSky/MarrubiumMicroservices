@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Catalog";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/catalog_page.css"/>
+
+<div class="main-block">
+    <div class="container">
+        <div class="row upper-section">
+            <div class="col-md-3">
+                <h1 class="catalog__title">Catalog</h1>
+            </div>
+        </div>
+        <div class="row categories">
+            <div class="col-md-3">
+                <select id="type-of-product" name="type-of-product" class="sort">
+                    <option disabled selected>Type</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select id="function" name="function" class="sort">
+                    <option disabled selected>Function</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select id="skin-type" name="skin-type" class="sort">
+                    <option disabled selected>Skin type</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select id="sorting" name="sorting" class="sort">
+                    <option disabled selected>Sort</option>
+                    <option value="default">Default</option>
+                    <option value="decs-price">Descending prices</option>
+                    <option value="acs-price">Ascending prices</option>
+                    <option value="most-popular">Most popular</option>
+                    <option value="best-rate">Best rating</option>
+                </select>
+            </div>
+        </div>
+        <div class="container" id="product-block"></div>
+    </div>
+</div>
+
+<script type="module" src="/js/scripts/show_products.js"></script>

@@ -16,13 +16,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <a class="logo" asp-controller="Home" asp-action="Index"></a>
+                    <a class="logo" asp-controller="Home" asp-action="Main"></a>
                 </div>
                 <div class="col-md-8">
                     <ui class="main_menu">
-                        <li><a class="s1" asp-controller="About" asp-action="Index">About</a></li>
+                        <li><a class="s1" asp-controller="Home" asp-action="About">About</a></li>
                         <li>
-                            <a class="s1" asp-controller="Product" asp-action="ProductIndex">Catalog</a>
+                            <a class="s1" asp-controller="Catalog" asp-action="Main">Catalog</a>
                             <ul>
                                 <li><a class="s2">Creams</a></li>
                                 <li><a class="s2">Serums</a></li>
@@ -30,8 +30,8 @@
                                 <li><a class="s2">Masks</a></li>
                             </ul>
                         </li>
-                        <li><a class="s1" asp-controller="Delivery" asp-action="Index">Delivery</a></li>
-                        <li><a class="s1" asp-controller="Contacts" asp-action="Index">Contacts</a></li>
+                        <li><a class="s1" asp-controller="Home" asp-action="Delivery">Delivery</a></li>
+                        <li><a class="s1" asp-controller="Home" asp-action="Contacts">Contacts</a></li>
                     </ui>
                 </div>
                 <div class="col-md-2">
@@ -57,14 +57,14 @@
                 </div>
                 <div class="offset-md-1 col-md-2">
                     <div class="footer-menu-1 flex-cont">
-                        <a asp-controller="About" asp-action="Index">About</a>
-                        <a asp-controller="Product" asp-action="ProductIndex">Catalog</a>
-                        <a asp-controller="Contacts" asp-action="Index">Contacts</a>
+                        <a asp-controller="Home" asp-action="About">About</a>
+                        <a asp-controller="Catalog" asp-action="Main">Catalog</a>
+                        <a asp-controller="Home" asp-action="Contacts">Contacts</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="footer-menu-2 flex-cont">
-                        <a asp-controller="Delivery" asp-action="Index">Delivery</a>
+                        <a asp-controller="Home" asp-action="Delivery">Delivery</a>
                         <a href="mailto:p4rplesky@gmail.com">Write us</a>
                     </div>
                 </div>
