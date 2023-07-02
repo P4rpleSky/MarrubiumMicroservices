@@ -19,12 +19,30 @@ namespace Marrubium.Services.ProductAPI.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(List<ProductDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<List<ProductDto>>> Get()
+        public async Task<ActionResult<List<ProductDto>>> GetAllProducts()
         {
             try
             {
-                var productDtos = await _productRepository.GetProductsAsync();
+                using var cts = new CancellationTokenSource();
+                var productDtos = await _productRepository.GetProductsAsync(cts.Token);
                 return Ok(productDtos.ToList());
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+        
+        [HttpGet("categories")]
+        [ProducesResponseType(typeof(CategoryListsModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<List<ProductDto>>> GetProductsCategories()
+        {
+            try
+            {
+                using var cts = new CancellationTokenSource();
+                var categories = await _productRepository.GetAllCategoriesAsync(cts.Token);
+                return Ok(categories);
             }
             catch (Exception ex)
             {
@@ -35,11 +53,12 @@ namespace Marrubium.Services.ProductAPI.Controllers
         [HttpGet("{id:int}")]
         [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<ProductDto>> Get(int id)
+        public async Task<ActionResult<ProductDto>> GetProductById(int id)
         {
             try
             {
-                var productDto = await _productRepository.GetProductByIdAsync(id);
+                using var cts = new CancellationTokenSource();
+                var productDto = await _productRepository.GetProductByIdAsync(id, cts.Token);
                 return Ok(productDto);
             }
             catch (Exception ex)
@@ -51,11 +70,12 @@ namespace Marrubium.Services.ProductAPI.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProductDto>> Post([FromBody] ProductCreateUpdateDto productDto)
+        public async Task<ActionResult<ProductDto>> CreateProduct([FromBody] ProductCreateUpdateDto productDto)
         {
             try
             {
-                var model = await _productRepository.CreateUpdateProductAsync(productDto);
+                using var cts = new CancellationTokenSource();
+                var model = await _productRepository.CreateUpdateProductAsync(productDto, cts.Token);
                 return Ok(model);
             }
             catch (Exception ex)
@@ -67,11 +87,12 @@ namespace Marrubium.Services.ProductAPI.Controllers
         [HttpPut("{id:int}")]
         [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProductDto>> Put([FromBody] ProductCreateUpdateDto productDto)
+        public async Task<ActionResult<ProductDto>> UpdateProduct([FromBody] ProductCreateUpdateDto productDto)
         {
             try
             {
-                var model = await _productRepository.CreateUpdateProductAsync(productDto);
+                using var cts = new CancellationTokenSource();
+                var model = await _productRepository.CreateUpdateProductAsync(productDto, cts.Token);
                 return Ok(model);
             }
             catch (Exception ex)
@@ -83,11 +104,12 @@ namespace Marrubium.Services.ProductAPI.Controllers
         [HttpDelete("{id:int}")]
         [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProductDto>> Delete(int id)
+        public async Task<ActionResult<ProductDto>> DeleteProductById(int id)
         {
             try
             {
-                var isSuccess = await _productRepository.DeleteProductByIdAsync(id);
+                using var cts = new CancellationTokenSource();
+                var isSuccess = await _productRepository.DeleteProductByIdAsync(id, cts.Token);
                 return Ok(isSuccess);
             }
             catch (Exception ex)

@@ -22,7 +22,7 @@ public class ProductApiGrpcService : ProductApiGrpc.ProductApiGrpcBase
     {
         try
         {
-            var products = await _productRepository.GetProductsAsync();
+            var products = await _productRepository.GetProductsAsync(context.CancellationToken);
             return new ProductsListResponse
             {
                 Products = { products.Select(x => _mapper.Map<ProductResponse>(x)) }
@@ -42,7 +42,7 @@ public class ProductApiGrpcService : ProductApiGrpc.ProductApiGrpcBase
     {
         try
         {
-            var product = await _productRepository.GetProductByIdAsync(request.Id);
+            var product = await _productRepository.GetProductByIdAsync(request.Id, context.CancellationToken);
             return _mapper.Map<ProductResponse>(product);
         }
         catch (Exception exception)
@@ -60,7 +60,7 @@ public class ProductApiGrpcService : ProductApiGrpc.ProductApiGrpcBase
         try
         {
             var product = _mapper.Map<ProductCreateUpdateDto>(request);
-            var result = await _productRepository.CreateUpdateProductAsync(product);
+            var result = await _productRepository.CreateUpdateProductAsync(product, context.CancellationToken);
             return _mapper.Map<ProductResponse>(result);
         }
         catch (Exception exception)
@@ -77,7 +77,7 @@ public class ProductApiGrpcService : ProductApiGrpc.ProductApiGrpcBase
     {
         try
         {
-            var isSuccess = await _productRepository.DeleteProductByIdAsync(request.Id);
+            var isSuccess = await _productRepository.DeleteProductByIdAsync(request.Id, context.CancellationToken);
             return new DeleteProductResponse { IsSuccess = isSuccess };
         }
         catch (Exception exception)

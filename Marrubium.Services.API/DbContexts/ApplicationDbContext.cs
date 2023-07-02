@@ -21,9 +21,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 1,
                 Name = "Cream with retinol",
                 Price = 1000,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Lotion" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Rejuvenating", "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Soft" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "lotion" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "rejuvenating", "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "soft" }),
                 ImageUrl = "https://images.bsite.net/products/1_1.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -32,8 +32,8 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 Name = "Lotion with centella",
                 Price = 1500,
                 ProductTypes = JsonConvert.SerializeObject(new List<string> { "Serum" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Rejuvenating" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Soft", "Sensitive" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "rejuvenating" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "soft", "sensitive" }),
                 ImageUrl = "https://images.bsite.net/products/1_2.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -41,9 +41,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 3,
                 Name = "Serum with green tea",
                 Price = 1200,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Serum" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Soft" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "serum" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "soft" }),
                 ImageUrl = "https://images.bsite.net/products/1_3.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -51,9 +51,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 4,
                 Name = "Serum with wormwood",
                 Price = 1600,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Serum" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Soft" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "serum" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "soft" }),
                 ImageUrl = "https://images.bsite.net/products/1_4.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -61,9 +61,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 5,
                 Name = "Scrub with vanilla",
                 Price = 900,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Cleaning" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Rejuvenating", "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Soft", "Sensitive" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "cleaning" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "rejuvenating", "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "soft", "sensitive" }),
                 ImageUrl = "https://images.bsite.net/products/2_1.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -71,9 +71,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 6,
                 Name = "Under-eye cream",
                 Price = 2000,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Lotion" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Rejuvenating", "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Sensitive" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "lotion" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "rejuvenating", "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "sensitive" }),
                 ImageUrl = "https://images.bsite.net/products/2_2.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -81,9 +81,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 7,
                 Name = "Cream with mint",
                 Price = 1000,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Lotion" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Rejuvenating" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Soft", "Sensitive" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "lotion" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "rejuvenating" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "soft", "sensitive" }),
                 ImageUrl = "https://images.bsite.net/products/2_3.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -91,9 +91,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 8,
                 Name = "Clay mask with matcha",
                 Price = 800,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Mask" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Sensitive" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "mask" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "sensitive" }),
                 ImageUrl = "https://images.bsite.net/products/2_4.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -101,9 +101,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 9,
                 Name = "The handle of the shovel",
                 Price = 500,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Mask" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Rough" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "mask" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "rough" }),
                 ImageUrl = "https://images.bsite.net/products/3_1.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -111,9 +111,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 10,
                 Name = "Garage",
                 Price = 10000,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Cleaning" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Rejuvenating", "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Rough" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "cleaning" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "rejuvenating", "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "rough" }),
                 ImageUrl = "https://images.bsite.net/products/3_2.png"
             });
             modelBuilder.Entity<Product>().HasData(new Product()
@@ -121,9 +121,9 @@ namespace Marrubium.Services.ProductAPI.DbContexts
                 ProductId = 11,
                 Name = "Russian hotdog",
                 Price = 50,
-                ProductTypes = JsonConvert.SerializeObject(new List<string> { "Serum" }),
-                Functions = JsonConvert.SerializeObject(new List<string> { "Rejuvenating", "Restoring" }),
-                SkinTypes = JsonConvert.SerializeObject(new List<string> { "Rough" }),
+                ProductTypes = JsonConvert.SerializeObject(new List<string> { "serum" }),
+                Functions = JsonConvert.SerializeObject(new List<string> { "rejuvenating", "restoring" }),
+                SkinTypes = JsonConvert.SerializeObject(new List<string> { "rough" }),
                 ImageUrl = "https://images.bsite.net/products/3_3.png"
             });
         }

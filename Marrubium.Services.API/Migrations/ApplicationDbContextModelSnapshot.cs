@@ -30,7 +30,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ProductId"));
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Functions")
@@ -64,7 +63,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 1,
-                            Description = "",
                             Functions = "[\"Rejuvenating\",\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/1_1.png",
                             Name = "Cream with retinol",
@@ -75,7 +73,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 2,
-                            Description = "",
                             Functions = "[\"Rejuvenating\"]",
                             ImageUrl = "https://images.bsite.net/products/1_2.png",
                             Name = "Lotion with centella",
@@ -86,7 +83,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 3,
-                            Description = "",
                             Functions = "[\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/1_3.png",
                             Name = "Serum with green tea",
@@ -97,7 +93,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 4,
-                            Description = "",
                             Functions = "[\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/1_4.png",
                             Name = "Serum with wormwood",
@@ -108,7 +103,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 5,
-                            Description = "",
                             Functions = "[\"Rejuvenating\",\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/2_1.png",
                             Name = "Scrub with vanilla",
@@ -119,7 +113,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 6,
-                            Description = "",
                             Functions = "[\"Rejuvenating\",\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/2_2.png",
                             Name = "Under-eye cream",
@@ -130,7 +123,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 7,
-                            Description = "",
                             Functions = "[\"Rejuvenating\"]",
                             ImageUrl = "https://images.bsite.net/products/2_3.png",
                             Name = "Cream with mint",
@@ -141,7 +133,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 8,
-                            Description = "",
                             Functions = "[\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/2_4.png",
                             Name = "Clay mask with matcha",
@@ -152,7 +143,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 9,
-                            Description = "",
                             Functions = "[\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/3_1.png",
                             Name = "The handle of the shovel",
@@ -163,7 +153,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 10,
-                            Description = "",
                             Functions = "[\"Rejuvenating\",\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/3_2.png",
                             Name = "Garage",
@@ -174,7 +163,6 @@ namespace Marrubium.Services.ProductAPI.Migrations
                         new
                         {
                             ProductId = 11,
-                            Description = "",
                             Functions = "[\"Rejuvenating\",\"Restoring\"]",
                             ImageUrl = "https://images.bsite.net/products/3_3.png",
                             Name = "Russian hotdog",

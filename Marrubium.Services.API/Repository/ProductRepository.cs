@@ -17,7 +17,7 @@ namespace Marrubium.Services.ProductAPI.Repository
             _mapper = mapper;
         }
 
-        public async Task<ProductCreateUpdateDto> CreateUpdateProductAsync(ProductCreateUpdateDto productDto)
+        public async Task<ProductCreateUpdateDto> CreateUpdateProductAsync(ProductCreateUpdateDto productDto, CancellationToken cancellationToken)
         {
             var product = _mapper.Map<Product>(productDto);
             if (product.ProductId > 0) 
@@ -28,25 +28,37 @@ namespace Marrubium.Services.ProductAPI.Repository
             {
                 _db.Products.Add(product);
             }
-            await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync(cancellationToken);
             return _mapper.Map<Product, ProductCreateUpdateDto>(product);
         }
 
-        public async Task<bool> DeleteProductByIdAsync(int productId)
+        public async Task<bool> DeleteProductByIdAsync(int productId, CancellationToken cancellationToken)
         {
-            var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
+            var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId, cancellationToken: cancellationToken);
             if (product == null)
             {
                 throw new ArgumentException("Cannot delete user: invalid input ID!");
             }
             _db.Products.Remove(product);
-            await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync(cancellationToken);
             return true;
         }
 
-        public async Task<ProductDto> GetProductByIdAsync(int productId)
+        public async Task<CategoryListsModel> GetAllCategoriesAsync(CancellationToken cancellationToken)
         {
-            var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
+            var products = await GetProductsAsync(cancellationToken);
+            return new CategoryListsModel()
+            {
+                ProductTypes = products.SelectMany(x => x.ProductTypes.Select(y => y.ToLower())).Distinct().ToList(),
+                Functions = products.SelectMany(x => x.Functions.Select(y => y.ToLower())).Distinct().ToList(),
+                SkinTypes = products.SelectMany(x => x.SkinTypes.Select(y => y.ToLower())).Distinct().ToList(),
+            };
+
+        }
+
+        public async Task<ProductDto> GetProductByIdAsync(int productId, CancellationToken cancellationToken)
+        {
+            var product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId, cancellationToken: cancellationToken);
             if (product == null)
             {
                 throw new ArgumentException("Cannot get user by id: invalid input ID!");
@@ -54,9 +66,9 @@ namespace Marrubium.Services.ProductAPI.Repository
             return _mapper.Map<ProductDto>(product);
         }
 
-        public async Task<IEnumerable<ProductDto>> GetProductsAsync()
+        public async Task<List<ProductDto>> GetProductsAsync(CancellationToken cancellationToken)
         {
-            var productList = await _db.Products.OrderBy(x => x.ProductId).ToListAsync();
+            var productList = await _db.Products.OrderBy(x => x.ProductId).ToListAsync(cancellationToken: cancellationToken);
             return _mapper.Map<List<ProductDto>>(productList);
         }
     }
