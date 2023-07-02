@@ -9,28 +9,28 @@ public class ProductCreateUpdateViewModel
     public int ProductId { get; set; }
     
     [Required]
-    public string Name { get; set; } = null!;
+    public string Name { get; init; } = null!;
         
     [Required]
     [Range(50, 200000)]
-    public int Price { get; set; }
+    public int Price { get; init; }
 
     [Required]
     [MaxLength(100)]
-    public string ProductTypes { get; set; } = null!;
+    public string ProductTypes { get; init; } = null!;
         
     [Required]
     [MaxLength(100)]
-    public string Functions { get; set; } = null!;
+    public string Functions { get; init; } = null!;
         
     [Required]
     [MaxLength(100)]
-    public string SkinTypes { get; set; } = null!;
+    public string SkinTypes { get; init; } = null!;
         
     [Required]
     [Url]
-    public string ImageUrl { get; set; } = string.Empty;
+    public string ImageUrl { get; init; } = string.Empty;
     
     [MaxLength(1000)]
-    public string Description { get; set; } = string.Empty;
+    public string? Description { get; init; }
 }
