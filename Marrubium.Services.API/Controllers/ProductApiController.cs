@@ -9,7 +9,7 @@ namespace Marrubium.Services.ProductAPI.Controllers
     [Route("api/products")]
     public class ProductApiController : ControllerBase
     {
-        private IProductRepository _productRepository;
+        private readonly IProductRepository _productRepository;
 
         public ProductApiController(IProductRepository productRepository)
         {

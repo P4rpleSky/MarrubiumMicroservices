@@ -13,11 +13,14 @@ var mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-using var channel = GrpcChannel.ForAddress(builder.Configuration["ServiceUrls:ProductAPI"]?? "");
+builder.Services.AddGrpcClient<ProductApiGrpc.ProductApiGrpcClient>(o =>
+{
+    o.Address = new Uri(builder.Configuration["ServiceUrls:ProductAPI"] ?? "");
+});
+
+/*using var channel = GrpcChannel.ForAddress(builder.Configuration["ServiceUrls:ProductAPI"]?? "");
 var grpcClient = new ProductApiGrpc.ProductApiGrpcClient(channel);
-builder.Services.AddSingleton(grpcClient);
-
-
+builder.Services.AddSingleton(grpcClient);*/
 
 builder.Services.AddScoped<IProductService, ProductService>();
 
